@@ -42,7 +42,14 @@ jobs:
           echo test, and deploy your project.
     deploy:
       runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v3
-          - name: Show files
-            run: ls -l
+      steps:
+        - uses: actions/checkout@v3
+        - name: Show files
+          run: ls -l
+        - name: create private key from env var
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          run: |
+            mkdir ~/.ssh
+            echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
+            cat ~/.ssh/id_rsa
