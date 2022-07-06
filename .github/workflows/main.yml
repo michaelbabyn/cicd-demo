@@ -27,6 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        if: github.ref_name == 'dev'
         env:
           SECRET_TOKEN_RUNNER: ${{ secrets.SECRET_TOKEN }}
           BRANCH_NAME: ${{ github.ref_name }}
