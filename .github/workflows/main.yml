@@ -51,6 +51,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
         run: |
+          git fetch --unshallow upstream # prevent shallow update not allowed error
           mkdir ~/.ssh
           echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa # permissioning
