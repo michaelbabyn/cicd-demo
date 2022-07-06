@@ -12,7 +12,7 @@ server = app.server  # Expose the server variable for deployments
 app.layout = ddk.App([
     ddk.Header([
         ddk.Logo(src=app.get_asset_url('dash-logo.png')),
-        ddk.Title('Dash Enterprise Sample Application'),
+        ddk.Title('Dash Enterprise Sample Application2'),
     ]),
     ddk.Row(children=[
         ddk.Card(children=[
